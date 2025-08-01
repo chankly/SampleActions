@@ -9,10 +9,12 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4  # Necesario para acceder a la acción local
+        with:
+          fetch-depth: 0
 
       - name: Hello world action step
         id: hello
-        uses: ./actions/hello-world
+        uses: ./actions/hello-world@v1
         with:
           who-to-greet: 'Mona the Octocat'
           
