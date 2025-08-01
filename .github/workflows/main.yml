@@ -12,7 +12,7 @@ jobs:
 
       - name: Hello world action step
         id: hello
-        uses: ./actions/hello-world@v1
+        uses: ./actions/hello-world
         with:
           who-to-greet: 'Mona the Octocat'
           
