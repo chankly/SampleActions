@@ -14,10 +14,22 @@ jobs:
 
       - name: Hello world action step
         id: hello
-        uses: ./actions/hello-world@v2
+        uses: ./actions/hello-world
         with:
           who-to-greet: 'Mona the Octocat'
           
       # Use the output from the `hello` step
       - name: Get the output time
         run: echo "The time was ${{ steps.hello.outputs.time }}"
+
+      - name: Hello world composite action step
+        id: hello-composite
+        uses: ./actions/hello-world-composite
+        with:
+          who-to-greet: 'Mona the Octocat'
+          
+      - name: print random number
+        run: echo random-number "$RANDOM_NUMBER"
+        shell: bash
+        env:
+          RANDOM_NUMBER: ${{ steps.foo.outputs.random-number }}
