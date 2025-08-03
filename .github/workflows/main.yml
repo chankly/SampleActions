@@ -24,7 +24,7 @@ jobs:
           who-to-greet: ${{ inputs.name-person }}
 
       - name: Sample Api URL
-        run: echo "ApiUrl: ${{ github.api_url }}"
+        run: echo "ApiUrl - ${{ github.api_url }}"
       
       - name: Get the output time
         run: echo "The time was ${{ steps.hello.outputs.time }}"
