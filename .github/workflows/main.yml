@@ -15,15 +15,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4  # Necesario para acceder a la acción local
         with:
-          fetch-depth: 0
+          fetch-depth: 0          
 
       - name: Hello world action step
         id: hello
         uses: ./actions/hello-world
         with:
           who-to-greet: ${{ inputs.name-person }}
-          
-      # Use the output from the `hello` step
+
+      - name: Sample Api URL
+        run: echo "${{ github.api_url }}"
+      
       - name: Get the output time
         run: echo "The time was ${{ steps.hello.outputs.time }}"
 
