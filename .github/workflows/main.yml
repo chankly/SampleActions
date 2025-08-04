@@ -42,3 +42,15 @@ jobs:
         shell: bash
         env:
           RANDOM_NUMBER: ${{ steps.hello-composite.outputs.random-number }}
+          
+  another_hello_world_job:
+    runs-on: ubuntu-latest
+    name: another_hello_world_job
+    steps:
+      - name: Set output
+        id: another_hello_world_job_step1
+        run: echo "my_var=my variable" >> $GITHUB_OUTPUT
+        
+      - name: Print output
+        id: another_hello_world_job_step2
+        run: echo "El valor es ${{ steps.another_hello_world_job_step1.outputs.my_var }}"
