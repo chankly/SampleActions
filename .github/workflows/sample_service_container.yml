@@ -1,4 +1,4 @@
-name: Sample
+name: Sample Service Container
 on:
   workflow_dispatch:
 
