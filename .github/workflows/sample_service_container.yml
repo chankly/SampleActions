@@ -23,9 +23,9 @@ jobs:
           sleep 30s
         shell: bash
 
-      - name: Import database schema
-        run: |
-          mysql -h 127.0.0.1 -u root_test -p rootpassword testdb < database/schema.sql
+#      - name: Import database schema
+#        run: |
+#          mysql -h 127.0.0.1 -u root_test -p rootpassword testdb < database/schema.sql
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
@@ -33,10 +33,10 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Restore dependencies
-        run: dotnet restore
+        run: dotnet restore src/HSoft.SampleActions.ConsoleApp.sln
 
       - name: Build
-        run: dotnet build --no-restore
+        run: dotnet build src/HSoft.SampleActions.ConsoleApp.sln --no-restore
 
       - name: Run integration tests
-        run: dotnet test --filter Category=Integration
+        run: dotnet test src/HSoft.SampleActions.ConsoleApp.sln --filter Category=Integration
