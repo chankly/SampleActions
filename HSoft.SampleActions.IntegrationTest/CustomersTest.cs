@@ -4,8 +4,8 @@ namespace HSoft.SampleActions.IntegrationTest
 {
     public class Tests
     {
-        [SetUp]
-        public void Setup()
+        [OneTimeSetUp]
+        public void Start()
         {
             var options = new DbContextOptionsBuilder<MySqlDbContext>().UseMySQL("server=localhost;database=testdb;user=root;password=root_test").Options;
 
