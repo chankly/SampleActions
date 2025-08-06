@@ -35,6 +35,13 @@ namespace HSoft.SampleActions.IntegrationTest
                 Assert.That(customers.Count, Is.EqualTo(1));
             }
         }
+
+        [Category("Integration")]
+        [Test]
+        public void CustomerAdd_Fail()
+        {
+            Assert.Fail("Failed test");
+        }
     }
 
     public class MySqlDbContext : DbContext
