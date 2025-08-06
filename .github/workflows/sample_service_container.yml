@@ -1,0 +1,42 @@
+name: Sample
+on:
+  workflow_dispatch:
+
+jobs:
+  setup-execute-tests:
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+       image: mysql:8.0
+       env:
+        MYSQL_ROOT_PASSWORD: root_test
+        MYSQL_DATABASE: testdb
+       ports:
+        - 3306:3306
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Wait for Mysql to be healty
+        run: |
+          echo "Waiting for MySQL..."
+          sleep 30s
+        shell: bash
+
+      - name: Import database schema
+        run: |
+          mysql -h 127.0.0.1 -u root_test -p rootpassword testdb < database/schema.sql
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --no-restore
+
+      - name: Run integration tests
+        run: dotnet test --filter Category=Integration
