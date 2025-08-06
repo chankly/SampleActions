@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.36105.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSoft.SampleActions.ConsoleApp", "HSoft.SampleActions.ConsoleApp.csproj", "{B96193A8-ACD3-4C85-81E9-8E134D399F05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSoft.SampleActions.IntegrationTest", "..\HSoft.SampleActions.IntegrationTest\HSoft.SampleActions.IntegrationTest.csproj", "{4CE86BE0-1C15-4491-BDA8-A2D124ACD488}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B96193A8-ACD3-4C85-81E9-8E134D399F05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B96193A8-ACD3-4C85-81E9-8E134D399F05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B96193A8-ACD3-4C85-81E9-8E134D399F05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B96193A8-ACD3-4C85-81E9-8E134D399F05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CE86BE0-1C15-4491-BDA8-A2D124ACD488}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CE86BE0-1C15-4491-BDA8-A2D124ACD488}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CE86BE0-1C15-4491-BDA8-A2D124ACD488}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CE86BE0-1C15-4491-BDA8-A2D124ACD488}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9AD1D1E1-4221-4F27-826A-6EBCC02057A6}
+	EndGlobalSection
+EndGlobal
