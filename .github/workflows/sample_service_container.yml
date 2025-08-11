@@ -6,6 +6,9 @@ concurrency:
   group: sample_service_container
   cancel-in-progress: true
 
+env:
+  NUGET_PACKAGES: ${{ github.workspace }}/.nuget/packages  # Ruta de caché
+  
 jobs:
   setup-execute-tests:
     runs-on: ubuntu-latest
@@ -36,8 +39,17 @@ jobs:
         with:
           dotnet-version: '8.0.x'
 
+      - name: Cache NuGet packages
+        uses: actions/cache@v4
+        id: cache-nuget
+        with:
+          path: ${{ env.NUGET_PACKAGES }}
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget-
+          
       - name: Restore dependencies
-        run: dotnet restore src/HSoft.SampleActions.ConsoleApp.sln
+        run: dotnet restore src/HSoft.SampleActions.ConsoleApp.sln --packages ${{ env.NUGET_PACKAGES }}
 
       - name: Build
         run: dotnet build src/HSoft.SampleActions.ConsoleApp.sln --no-restore
